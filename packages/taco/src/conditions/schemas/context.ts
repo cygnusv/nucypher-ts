@@ -6,7 +6,8 @@ import { plainStringSchema } from './common';
 
 export const contextParamSchema = z.string().regex(CONTEXT_PARAM_REGEXP);
 
-const paramSchema = z.union([plainStringSchema, z.boolean(), z.number()]);
+// TODO: This is too broad, but it's a start
+const paramSchema = z.union([plainStringSchema, z.boolean(), z.number().int().nonnegative()]);
 
 export const paramOrContextParamSchema: z.ZodSchema = z.union([
   paramSchema,

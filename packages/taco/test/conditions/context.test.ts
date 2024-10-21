@@ -523,10 +523,6 @@ describe('param or context param schema', () => {
     expect(paramOrContextParamSchema.safeParse(123).success).toBe(true);
   });
 
-  it('accepts an floating number', () => {
-    expect(paramOrContextParamSchema.safeParse(123.4).success).toBe(true);
-  });
-
   it('accepts a string', () => {
     expect(paramOrContextParamSchema.safeParse('deadbeef').success).toBe(true);
   });
@@ -576,7 +572,7 @@ describe('param or context param schema', () => {
         1,
         [
           2,
-          [true, [1.23, ':hi', '0xdeadbeef'], ':my_name_is', 1],
+          [true, [123, ':hi', '0xdeadbeef'], ':my_name_is', 1],
           ':slim_shady',
           false,
         ],
